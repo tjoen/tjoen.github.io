@@ -45,20 +45,21 @@ function create() {
         
     player = game.add.sprite(100, 110, 'TombZombies', 1);
     enemy1 = game.add.sprite(600, 110, 'TombZombies', 10);
-    enemy2 = game.add.sprite(700, 110, 'squid', 1);
+   // enemy2 = game.add.sprite(700, 110, 'squid', 1);
      
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
     game.physics.enable(enemy1, Phaser.Physics.ARCADE);
+  //game.physics.enable(enemy2, Phaser.Physics.ARCADE);
 
     enemy1.body.bounce.y = 0.2;
     enemy1.body.collideWorldBounds = true;
     enemy1.body.setSize(20, 31, 6, 3);
  
 
-   enemy2.body.bounce.y = 0.4;
-    enemy2.body.collideWorldBounds = true;
-    enemy2.body.setSize(20, 31, 6, 3);
+   //enemy2.body.bounce.y = 0.4;
+   // enemy2.body.collideWorldBounds = true;
+    //enemy2.body.setSize(20, 31, 6, 3);
       
         
     player.body.bounce.y = 0.2;
@@ -71,8 +72,8 @@ function create() {
  enemy1.animations.add('skell',[21,22,23],8,true);
  enemy1.animations.add('skelr',[33,34,35],8,true);
  
- enemy2.animations.add('squidl',[3,4,5],8,true);
- enemy2.animations.add('squidr',[6,7,8],8,true);
+ //enemy2.animations.add('squidl',[3,4,5],8,true);
+ //enemy2.animations.add('squidr',[6,7,8],8,true);
  
 
  player.health = 50;   // simple as that really.
@@ -204,7 +205,7 @@ if //(game.input.activePointer.x < player.x )
     enemy1.frame = 10;
   }
   
-   enemy2.animations.play('squidl');
+   //enemy2.animations.play('squidl');
   
   //enemy got me!
 game.physics.arcade.overlap(player, enemy1, hurtmePlenty, null, this);
