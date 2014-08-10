@@ -23,7 +23,6 @@ var enemy2;
 var enemy3;
 var score = 0;
 var scoreText;
-var emitter;
  
 function create() {
    
@@ -45,30 +44,16 @@ function create() {
     
         
     player = game.add.sprite(100, 110, 'TombZombies', 1);
-   // enemy1 = game.add.sprite(600, 110, 'TombZombies', 10);
+    enemy1 = game.add.sprite(600, 110, 'TombZombies', 10);
     //enemy2 = game.add.sprite(700, 110, 'TombZombies', 7);
      
-
-    emitter = game.add.emitter(game.world.centerX, game.world.centerY, 250);
-
-    emitter.makeParticles('TombZombies', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], 200, true, true);
-
-    emitter.minParticleSpeed.setTo(-200, -300);
-    emitter.maxParticleSpeed.setTo(200, -400);
-    emitter.gravity = 150;
-    emitter.bounce.setTo(0.5, 0.5);
-    emitter.angularDrag = 30;
-
-    emitter.start(false, 8000, 400);
-
-
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
     game.physics.enable(enemy1, Phaser.Physics.ARCADE);
 
-    //enemy1.body.bounce.y = 0.2;
-    //enemy1.body.collideWorldBounds = true;
-   // enemy1.body.setSize(20, 31, 6, 3);
+    enemy1.body.bounce.y = 0.2;
+    enemy1.body.collideWorldBounds = true;
+    enemy1.body.setSize(20, 31, 6, 3);
         
         
     player.body.bounce.y = 0.2;
@@ -134,8 +119,6 @@ function update() {
    enemy1.body.velocity.x = 0;
    //enemy2.body.velocity.x = 0;
   
-
-    game.physics.arcade.collide(emitter);
   
   // if (game.input.activePointer.x < player.x) {
     // mouse pointer is to the left
